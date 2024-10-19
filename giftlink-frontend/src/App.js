@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
+import DetailsPage from './components/DetailsPage/DetailsPage'
 import MainPage from './components/MainPage/MainPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import LoginPage from './components/LoginPage/LoginPage';
@@ -18,8 +19,9 @@ function App() {
           <Route path="/app" element={<MainPage />} />
           <Route path="/app/login" element={<LoginPage />} />
           <Route path="/app/register" element={<RegisterPage />} />
+          <Route path="/app/gifts/:productId" element={<DetailsPage />} />
         </Routes>
-        </>
+    </>
   );
 }
 
