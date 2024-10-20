@@ -54,7 +54,7 @@ router.post('/register', async (req, res) => {
 
         // Task 4: Save user details in database
         const newUser = await collection.insertOne({
-            email, firstName, lastName, password,
+            email, firstName, lastName, password : hash,
             createdAt: new Date()
         })
 
