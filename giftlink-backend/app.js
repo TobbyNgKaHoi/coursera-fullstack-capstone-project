@@ -30,6 +30,9 @@ app.use("/api/gifts", giftRoutes);
 const searchRoutes  = require('./routes/searchRoutes');
 app.use("/api/search", searchRoutes);
 
+const authRoutes = require('./routes/authRoutes');
+app.use("/api/auth", authRoutes);
+
 
 const pinoHttp = require('pino-http');
 const logger = require('./logger');
