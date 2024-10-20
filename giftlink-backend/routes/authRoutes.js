@@ -25,6 +25,16 @@ router.post('/register', async (req, res) => {
         email = (email??"").trim();
         password = (password??"").trim();
 
+        if (firstName === "") {
+            return res.json({ error: `firstName is required.`});
+        } else if (lastName === "") {
+            return res.json({ error: `lastName is required.`});
+        } else if (email === "") {
+            return res.json({ error: `email is required.`});
+        } else if (password === "") {
+            return res.json({ error: `password is required.`});
+        }
+
         // Task 1: Connect to `giftsdb` in MongoDB through `connectToDatabase` in `db.js`
         const db = await connectToDatabase();
 
@@ -33,6 +43,10 @@ router.post('/register', async (req, res) => {
 
         // Task 3: Check for existing email
         const existingEmail = await collection.findOne({ email });
+
+        if (existingEmail) {
+            return res.json({ error: `email already exist. Pls login with ${email} or register with another email`});
+        }
 
         const salt = await bcryptjs.genSalt(10);
         const hash = await bcryptjs.hash(password, salt);
