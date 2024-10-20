@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import SearchPage from './components/SearchPage/SearchPage'
 import DetailsPage from './components/DetailsPage/DetailsPage'
 import MainPage from './components/MainPage/MainPage';

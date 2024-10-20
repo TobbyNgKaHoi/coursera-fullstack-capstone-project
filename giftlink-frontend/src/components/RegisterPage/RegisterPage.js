@@ -30,12 +30,13 @@ function RegisterPage() {
     // insert code here to create handleRegister function and include console.log
     const handleRegister = async (e) => {
         e.preventDefault();
-        console.log("Register invoked")
+        console.log("Register invoked");
+
         //Step 1: Implement API call
         const fetchRegister = async() => {
             try {
                 let url = `${urlConfig.backendUrl}/api/auth/register`;
-                console.log(url);
+                console.log(`fetchRegister: ${url}`);
                 const response = await fetch(url, {
                     method: 'POST',
                     headers: {
@@ -141,9 +142,9 @@ function RegisterPage() {
                             {/* insert code here to create a button that performs the `handleRegister` function on click */}
 
                             <button className="btn btn-primary w-100 mb-3" onClick={handleRegister}>Register</button>
-                    <p className="mt-4 text-center">
-                        Already a member? <a href="/app/login" className="text-primary">Login</a>
-                    </p>
+                            <p className="mt-4 text-center">
+                                Already a member? <a href="/app/login" className="text-primary">Login</a>
+                            </p>
 
                         </div>
                 </div>

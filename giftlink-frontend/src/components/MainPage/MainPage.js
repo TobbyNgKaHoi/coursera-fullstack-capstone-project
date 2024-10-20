@@ -11,6 +11,7 @@ function MainPage() {
         const fetchGifts = async() => {
             try {
                 let url = `${urlConfig.backendUrl}/api/gifts`;
+                console.log(`fetchGifts: ${url}`);
                 const response = await fetch(url);
 
                 if (!response.ok) {

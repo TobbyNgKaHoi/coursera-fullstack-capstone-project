@@ -18,6 +18,7 @@ const logger = pino();
 const JWT_SECRET = process.env.JWT_SECRET;
 
 router.post('/register', async (req, res) => {
+    console.log('API register');
     try {
         let { firstName, lastName, email, password } = req.body
         firstName = (firstName??"").trim();
@@ -70,11 +71,13 @@ router.post('/register', async (req, res) => {
         logger.info('User registered successfully');
         res.json({authtoken,email});
     } catch (e) {
-         return res.status(500).send('Internal server error');
+        console.log('Register error: ', e);
+        return res.status(500).send('Internal server error');
     }
 });
 
 router.post('/login', async (req, res) => {
+    console.log('API login');
     try {
         let { email, password } = req.body;
         email = (email??"").trim();
@@ -96,6 +99,12 @@ router.post('/login', async (req, res) => {
 
         // Task 4: Task 4: Check if the password matches the encrypyted password and send appropriate message on mismatch
         if (existingUser) {
+            const salt = await bcryptjs.genSalt(10);
+            const hash = await bcryptjs.hash(password, salt);
+            console.log(`password: ${password}`);
+            console.log(`hash: ${hash}`);
+            console.log(`hash: ${existingUser.password}`);
+
             let result = await bcryptjs.compare(password, existingUser.password);
 
             if (!result) {
@@ -114,7 +123,7 @@ router.post('/login', async (req, res) => {
         // Task 6: Create JWT authentication if passwords match with user._id as payload
         const payload = {
             user: {
-                id: existingUser.insertedId
+                id: existingUser._id.toString(),
             }
         }
 
@@ -123,7 +132,8 @@ router.post('/login', async (req, res) => {
         res.json({authtoken, userName : firstName, userEmail: email });
         
     } catch (e) {
-         return res.status(500).send('Internal server error');
+        console.log('Login error: ', e);
+        return res.status(500).send('Internal server error');
     }
 });
 
