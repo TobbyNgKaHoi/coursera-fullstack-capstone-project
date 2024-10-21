@@ -61,7 +61,7 @@ function SearchPage() {
 
     const goToDetailsPage = (productId) => {
         // Task 6. Enable navigation to the details page of a selected gift.
-        navigate(`${urlConfig.backendUrl}/app/gifts/${productId}`);
+        navigate(`${urlConfig.backendUrl}/app/product/${productId}`);
     };
 
 
