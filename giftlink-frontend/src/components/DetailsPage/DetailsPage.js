@@ -90,8 +90,8 @@ return (
                 </div>
                 <div className="card-body">
                     <div className="image-placeholder-large">
+			{ /* Task 5: Display gift image */ }
                         {gift.image ? (
-                            { /* Task 5: Display gift image */ }
                             <img src={gift.image} alt={gift.name} className="product-image-large" />
                         ) : (
                             <div className="no-image-available-large">No Image Available</div>
