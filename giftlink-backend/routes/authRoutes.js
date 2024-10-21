@@ -95,16 +95,10 @@ router.post('/login', async (req, res) => {
         const collection = db.collection("users");
 
         // Task 3: Check for user credentials in database
-        const existingUser = collection.findOne({ email });
+        const existingUser = await collection.findOne({ email });
 
         // Task 4: Task 4: Check if the password matches the encrypyted password and send appropriate message on mismatch
         if (existingUser) {
-            const salt = await bcryptjs.genSalt(10);
-            const hash = await bcryptjs.hash(password, salt);
-            console.log(`password: ${password}`);
-            console.log(`hash: ${hash}`);
-            console.log(`hash: ${existingUser.password}`);
-
             let result = await bcryptjs.compare(password, existingUser.password);
 
             if (!result) {
