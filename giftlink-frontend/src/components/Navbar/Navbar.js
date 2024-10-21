@@ -19,7 +19,7 @@ export default function Navbar() {
                 handleLogout(false);
             }
         }
-    }, [isLoggedIn, setIsLoggedIn, setUserName])
+    }, [isLoggedIn, setIsLoggedIn, setUserName, handleLogout]);
 
     const handleLogout = (isRedirect = false) => {
         sessionStorage.removeItem('auth-token');
@@ -31,11 +31,11 @@ export default function Navbar() {
         if (isRedirect) {
             navigate('/app');
         }
-    }
+    };
 
     const profileSection = () => {
         navigate('/app/profile');
-    }
+    };
 
     return (
         <>

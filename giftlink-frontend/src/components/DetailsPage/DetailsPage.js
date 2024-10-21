@@ -91,7 +91,7 @@ return (
                 <div className="card-body">
                     <div className="image-placeholder-large">
                         {gift.image ? (
-                            // Task 5: Display gift image
+                            { /* Task 5: Display gift image */ }
                             <img src={gift.image} alt={gift.name} className="product-image-large" />
                         ) : (
                             <div className="no-image-available-large">No Image Available</div>
@@ -117,7 +117,7 @@ return (
             </div>
             <div className="comments-section mt-4">
                 <h3 className="mb-3">Comments</h3>
-				// Task 7: Render comments section by using the map function to go through all the comments
+				{ /* Task 7: Render comments section by using the map function to go through all the comments */ }
 				{ comments.map((comment, index) => (
                     <div key={index} className="card mb-3">
                         <div className="card-body">
