@@ -68,7 +68,7 @@ function LoginPage() {
                     setErrorMsg('');
                     sessionStorage.setItem('auth-token', json.authtoken);
                     sessionStorage.setItem('name', json.userName);
-                    sessionStorage.setItem('email', json.email);
+                    sessionStorage.setItem('email', json.userEmail);
 
                     // Task 3: Set the user's state to log in using the `useAppContext`.
                     setIsLoggedIn(true);

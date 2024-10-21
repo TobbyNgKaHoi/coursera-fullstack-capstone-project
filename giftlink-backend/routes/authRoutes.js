@@ -132,7 +132,6 @@ router.post('/login', async (req, res) => {
 });
 
 // Task 1: Use the `body`,`validationResult` from `express-validator` for input validation
-import { body, validationResult } from 'express-validator';
 
 router.put('/update', async (req, res) => {
     console.log('API update');
