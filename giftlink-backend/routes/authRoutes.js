@@ -1,4 +1,4 @@
-/*jshint esversion: 8 */
+/*jshint esversion: 11 */
 //Step 1 - Task 2: Import necessary packages
 const express = require('express');
 const bcryptjs = require('bcryptjs');
