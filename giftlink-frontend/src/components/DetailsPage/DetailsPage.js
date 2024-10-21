@@ -90,29 +90,30 @@ return (
                 </div>
                 <div className="card-body">
                     <div className="image-placeholder-large">
-			{ /* Task 5: Display gift image */ }
-                        {gift.image ? (
+			            { /* Task 5: Display gift image */ }
+                        { gift.image ? (
                             <img src={gift.image} alt={gift.name} className="product-image-large" />
                         ) : (
                             <div className="no-image-available-large">No Image Available</div>
                         )}
                     </div>
-                    // Task 6: Display gift details
-                    	<p><strong>Category:</strong> 
-                            { gift.category }
-                        </p>
-                    	<p><strong>Condition:</strong> 
-                            { gift.condition }
-                    	</p>
-                    	<p><strong>Date Added:</strong> 
-                            { formatDate(gift.date_added) }
-                        </p>
-                    	<p><strong>Age (Years):</strong> 
-                            { gift.age_years }
-                    	</p>
-                    	<p><strong>Description:</strong> 
-                            { gift.description }
-                    	</p>
+                    
+                    { /* Task 6: Display gift details */ }
+                    <p><strong>Category:</strong> 
+                        { gift.category }
+                    </p>
+                    <p><strong>Condition:</strong> 
+                        { gift.condition }
+                    </p>
+                    <p><strong>Date Added:</strong> 
+                        { formatDate(gift.date_added) }
+                    </p>
+                    <p><strong>Age (Years):</strong> 
+                        { gift.age_years }
+                    </p>
+                    <p><strong>Description:</strong> 
+                        { gift.description }
+                    </p>
                 </div>
             </div>
             <div className="comments-section mt-4">

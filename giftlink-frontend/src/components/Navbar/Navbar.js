@@ -16,21 +16,23 @@ export default function Navbar() {
             if (isLoggedIn && nameFromSession) {
                 setUserName(nameFromSession);
             } else {
-                handleLogout(false);
+                sessionStorage.removeItem('auth-token');
+                sessionStorage.removeItem('name');
+                sessionStorage.removeItem('email');
+
+                setIsLoggedIn(false);
             }
         }
-    }, [isLoggedIn, setIsLoggedIn, setUserName, handleLogout]);
+    }, [isLoggedIn, setIsLoggedIn, setUserName]);
 
-    const handleLogout = (isRedirect = false) => {
+    const handleLogout = () => {
         sessionStorage.removeItem('auth-token');
         sessionStorage.removeItem('name');
         sessionStorage.removeItem('email');
 
         setIsLoggedIn(false);
 
-        if (isRedirect) {
-            navigate('/app');
-        }
+        navigate('/app');
     };
 
     const profileSection = () => {
@@ -61,7 +63,7 @@ export default function Navbar() {
                                 {isLoggedIn ? (
                                     <>
                                         <li className="nav-item"> <span className="nav-link" style={{color: "black", cursor:"pointer"}} onClick={profileSection}>Welcome, {userName}</span> </li>
-                                        <li className="nav-item"> <button className="nav-link login-btn" onClick={handleLogout(true)}>Logout</button></li>
+                                        <li className="nav-item"> <button className="nav-link login-btn" onClick={handleLogout}>Logout</button></li>
                                     </>
                                 ) : (
                                     <>
